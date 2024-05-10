@@ -90,3 +90,13 @@ SELECT song_key, COUNT(*) as key_count
 FROM BIT_DB.Spotifydata
 GROUP BY song_key;
 
+--Uses CTE to tag artists as a 'top star' if popularity reaches a certain threshold
+WITH popularity_average_CTE AS (
+    SELECT s.artist_name,
+    AVG(s.popularity) AS average_popularity
+    FROM Spotifydata s
+    GROUP BY s.artist_name
+    )
+    SELECT artist_name, average_popularity, 'Top Star' AS tag
+FROM popularity_average_CTE
+WHERE average_popularity>=90;
