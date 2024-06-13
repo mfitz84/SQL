@@ -1,6 +1,6 @@
 --This SQL project answered various media sales questions. I worked with a dataset that represented a digital media store including tables for artists, albums, media tracks, invoices, employees, and customers.
 
---Show Customers (their full names, customer ID, and country) who are not in the US. (Hint: != or <> can be used to say "is not equal to").
+--Show Customers 
 SELECT CustomerId, FirstName, LastName, Country
 FROM customers
 WHERE Country != 'USA';
